@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game_gui/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SkyHigh.gd" type="Script" id=2]
 [ext_resource path="res://units/platform/Plank_03.png" type="Texture" id=3]
+[ext_resource path="res://City.gd" type="Script" id=4]
 
 [node name="SkyHigh" type="Node"]
 script = ExtResource( 2 )
 starting_height = 1000
 
 [node name="City" type="RigidBody2D" parent="."]
-position = Vector2( 526.403, 290.417 )
+position = Vector2( 790.116, -463.805 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Camera2D" type="Camera2D" parent="City"]
 current = true
@@ -28,6 +33,8 @@ margin_right = 1.10803
 margin_bottom = 0.0
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 510.89, 279.336 )
+position = Vector2( 581.214, -304.351 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
+[connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
+[connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
