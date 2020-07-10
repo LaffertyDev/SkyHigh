@@ -1,0 +1,47 @@
+[gd_scene format=2]
+
+[node name="GUI" type="MarginContainer"]
+anchor_right = 1.0
+margin_bottom = 108.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 88.0
+alignment = 2
+
+[node name="Info" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 904.0
+margin_right = 984.0
+margin_bottom = 68.0
+
+[node name="Height" type="Label" parent="HBoxContainer/Info"]
+margin_right = 80.0
+margin_bottom = 14.0
+text = "Height"
+
+[node name="Velocity" type="Label" parent="HBoxContainer/Info"]
+margin_top = 18.0
+margin_right = 80.0
+margin_bottom = 32.0
+text = "Velocity"
+
+[node name="Acceleration" type="Label" parent="HBoxContainer/Info"]
+margin_top = 36.0
+margin_right = 80.0
+margin_bottom = 50.0
+text = "Acceleration"
+
+[node name="Mass" type="Label" parent="HBoxContainer/Info"]
+margin_top = 54.0
+margin_right = 80.0
+margin_bottom = 68.0
+text = "Mass"
