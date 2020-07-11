@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://units/platform/platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://units/platform/Plank_03.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://game_gui/gui.tscn" type="PackedScene" id=7]
 [ext_resource path="res://units/section/section.tscn" type="PackedScene" id=8]
 [ext_resource path="res://background/Clouds_01_192x128_Set_02_06.png" type="Texture" id=9]
+[ext_resource path="res://units/whale/whale.tscn" type="PackedScene" id=10]
 
 [node name="SkyHigh" type="Node"]
 script = ExtResource( 5 )
@@ -90,6 +91,15 @@ texture = ExtResource( 9 )
 position = Vector2( 329.068, 451.203 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
+
+[node name="Whale" parent="." instance=ExtResource( 10 )]
+position = Vector2( 217.564, -423.753 )
+
+[node name="Whale2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 98.6064, -411.282 )
+
+[node name="Whale3" parent="." instance=ExtResource( 10 )]
+position = Vector2( -130.676, -390.176 )
 [connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
 [connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
 [connection signal="built_platform" from="City/build_platform" to="City" method="_on_build_platform_built_platform"]
