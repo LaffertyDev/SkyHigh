@@ -52,7 +52,7 @@ func _handle_build_platform(build_platform):
 	var platform_scene = load("res://units/platform/platform.tscn")
 	var platform_instance = platform_scene.instance()
 	platform_instance.set_name("platform" + str(build_platform.offset_x) + "_" + str(build_platform.offset_y))
-	platform_instance.position.x = build_platform.offset_x * (256 + 30)
+	platform_instance.position.x = build_platform.offset_x * (128 + 30)
 	platform_instance.position.y = build_platform.offset_y * (64 + 30)
 	platform_instance.offset_x = build_platform.offset_x
 	platform_instance.offset_y = build_platform.offset_y
@@ -89,7 +89,7 @@ func _generate_platform_ui(offset_x, offset_y):
 	var instance = build_plat_scene.instance()
 	instance.set_name("platform")
 	instance.connect("built_platform", self, "_on_build_platform_built_platform")
-	instance.position.x = offset_x * (256 + 30)
+	instance.position.x = offset_x * (128 + 30)
 	instance.position.y = offset_y * (64 + 30)
 	instance.offset_x = offset_x
 	instance.offset_y = offset_y

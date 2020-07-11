@@ -34,12 +34,12 @@ position = Vector2( 70, -32 )
 
 [node name="build_platform" parent="City" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( 286, 0 )
+position = Vector2( 150, 0 )
 offset_x = 1
 
 [node name="build_platform2" parent="City" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( -286, 0 )
+position = Vector2( -150, 0 )
 offset_x = -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
