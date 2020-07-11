@@ -2,14 +2,9 @@ extends Node
 
 export(int) var starting_height
 
-
 func _ready():
 	print("Game script ready")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	$City.position.y = starting_height * -1
 
 func _on_City_hit_ground():
 	# hit the ground
