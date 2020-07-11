@@ -15,17 +15,20 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.3425, 10 )
+extents = Vector2( 32.6392, 18.619 )
 
-[node name="Whale" type="Area2D"]
+[node name="Whale" type="RigidBody2D"]
+input_pickable = true
+gravity_scale = 0.0
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 1.5 )
 frames = SubResource( 1 )
 frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.162128, 2.75614 )
 shape = SubResource( 2 )
 [connection signal="input_event" from="." to="." method="_on_Whale_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_Whale_mouse_entered"]
