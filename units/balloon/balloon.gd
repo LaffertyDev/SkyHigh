@@ -2,6 +2,8 @@ extends Node2D
 
 export(int) var health = 100
 
+signal balloon_pop
+
 func _ready():
 	add_to_group("balloons")
 
@@ -23,8 +25,8 @@ func _process(delta):
 	health = health - health_lost
 	$HealthBar.value = health
 	if health < 0:
-		print("balloon go pop")
 		get_parent().remove_child(self)
+		emit_signal("balloon_pop")
 		
 	if health < 100:
 		$HealthBar.visible = true

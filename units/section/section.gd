@@ -23,9 +23,13 @@ func _on_Option_Balloon_pressed():
 	instance.position.x = 0
 	instance.position.y = -100
 	get_parent().add_child(instance)
+	instance.connect("balloon_pop", self, "_on_Balloon_Pop")
 	_set_menu(false)
 	self.visible = false
 	
+func _on_Balloon_Pop():
+	self.visible = true
+
 func _set_menu(is_open):
 	$Option_1.visible = is_open
 	$Option_2.visible = is_open

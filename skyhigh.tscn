@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://units/platform/platform.tscn" type="PackedScene" id=1]
-[ext_resource path="res://units/platform/Plank_03.png" type="Texture" id=2]
 [ext_resource path="res://city.gd" type="Script" id=3]
 [ext_resource path="res://background/sky.png" type="Texture" id=4]
 [ext_resource path="res://skyhigh.gd" type="Script" id=5]
@@ -47,11 +46,6 @@ offset_x = -1
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 7 )]
 
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 581.214, -304.351 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
@@ -93,13 +87,13 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="Whale" parent="." instance=ExtResource( 10 )]
-position = Vector2( 217.564, -423.753 )
+position = Vector2( 214.806, -738.191 )
 
 [node name="Whale2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 98.6064, -411.282 )
 
 [node name="Whale3" parent="." instance=ExtResource( 10 )]
-position = Vector2( -130.676, -390.176 )
+position = Vector2( 98.6064, -411.282 )
 [connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
 [connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
 [connection signal="built_platform" from="City/build_platform" to="City" method="_on_build_platform_built_platform"]
