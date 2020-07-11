@@ -13,20 +13,29 @@ script = ExtResource( 5 )
 starting_height = 1000
 
 [node name="City" type="KinematicBody2D" parent="."]
-position = Vector2( 473.015, -395.516 )
+position = Vector2( 1024.31, -600.616 )
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="City"]
+position = Vector2( 0, 1 )
 current = true
+zoom = Vector2( 2, 2 )
 
 [node name="Balloon" parent="City" instance=ExtResource( 4 )]
-position = Vector2( 0, -36 )
+position = Vector2( -59.4594, -213.395 )
 
 [node name="Platform" parent="City" instance=ExtResource( 1 )]
+position = Vector2( 0.568817, -0.568787 )
 
 [node name="build_platform" parent="City" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( 62, 0 )
+position = Vector2( 286, 0 )
+offset_x = 1
+
+[node name="build_platform2" parent="City" instance=ExtResource( 6 )]
+show_behind_parent = true
+position = Vector2( -286, 0 )
+offset_x = -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -39,3 +48,4 @@ texture = ExtResource( 2 )
 [connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
 [connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
 [connection signal="built_platform" from="City/build_platform" to="City" method="_on_build_platform_built_platform"]
+[connection signal="built_platform" from="City/build_platform2" to="City" method="_on_build_platform_built_platform"]

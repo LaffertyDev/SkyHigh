@@ -7,11 +7,10 @@
 script = ExtResource( 2 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = -11.0
-margin_top = -11.4757
-margin_right = 215.0
-margin_bottom = 213.524
-rect_scale = Vector2( 0.1, 0.1 )
+margin_left = -128.0
+margin_top = -32.0
+margin_right = 128.0
+margin_bottom = 32.0
 texture_normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

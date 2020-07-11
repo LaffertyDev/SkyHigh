@@ -9,5 +9,4 @@ func _ready():
 	add_to_group("build_platforms")
 
 func _on_Build_Clicked():
-	print("clicked")
 	emit_signal("built_platform", offset_x, offset_y)

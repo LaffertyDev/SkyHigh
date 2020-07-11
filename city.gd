@@ -41,15 +41,45 @@ func _get_accel():
 
 func _on_build_platform_built_platform(offset_x, offset_y):
 	var build_platforms = _get_build_platforms()
-	print("signal intercept")
+
 	for b_plat in build_platforms:
 		if (b_plat.offset_x == offset_x && b_plat.offset_y == offset_y):
 			# replace build platform with a legit platform
-			var platform_scene = load("res://units/platform/platform.tscn")
-			var instance = platform_scene.instance()
-			instance.set_name("platform" + str(offset_x) + "_" + str(offset_y))
-			instance.position.x = b_plat.position.x
-			instance.position.y = b_plat.position.y
-			add_child(instance)
-			remove_child(b_plat)
-			break
+			_handle_build_platform(b_plat)
+			break;
+			
+func _handle_build_platform(build_platform):
+	var platform_scene = load("res://units/platform/platform.tscn")
+	var instance = platform_scene.instance()
+	instance.set_name("platform" + str(build_platform.offset_x) + "_" + str(build_platform.offset_y))
+	instance.position.x = build_platform.offset_x * (256 + 30)
+	instance.position.y = build_platform.offset_y * (64 + 30)
+	instance.offset_x = build_platform.offset_x
+	instance.offset_y = build_platform.offset_y
+	add_child(instance)
+	remove_child(build_platform)
+	
+	var should_build_left = build_platform.offset_x > -3 # cannot build more to the left
+	var should_build_right = build_platform.offset_x < 3 # cannot build more to the right
+	var platforms = _get_platforms()
+	for plat in platforms:
+		should_build_left = should_build_left && plat.offset_x != (build_platform.offset_x - 1)
+		should_build_right = should_build_right && plat.offset_x != (build_platform.offset_x + 1)
+	
+	if should_build_left:
+		var left = _generate_platform_ui(build_platform.offset_x - 1, build_platform.offset_y)
+		add_child(left)
+	if should_build_right:
+		var right = _generate_platform_ui(build_platform.offset_x + 1, build_platform.offset_y)
+		add_child(right)
+
+func _generate_platform_ui(offset_x, offset_y):
+	var build_plat_scene = load("res://units/build_platform/build_platform.tscn")
+	var instance = build_plat_scene.instance()
+	instance.set_name("platform")
+	instance.connect("built_platform", self, "_on_build_platform_built_platform")
+	instance.position.x = offset_x * (256 + 30)
+	instance.position.y = offset_y * (64 + 30)
+	instance.offset_x = offset_x
+	instance.offset_y = offset_y
+	return instance
