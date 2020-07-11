@@ -2,7 +2,9 @@
 
 [ext_resource path="res://units/section/section.gd" type="Script" id=1]
 
-[node name="Section" type="Button"]
+[node name="Node" type="Node2D"]
+
+[node name="Empty_Section" type="Button" parent="."]
 margin_left = -64.0
 margin_top = -64.0
 margin_right = 64.0
@@ -13,7 +15,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_Balloon" type="Button" parent="."]
+[node name="Option_Balloon" type="Button" parent="Empty_Section"]
+visible = false
 margin_left = -96.0
 margin_top = -128.0
 margin_right = -32.0
@@ -23,7 +26,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_1" type="Button" parent="."]
+[node name="Option_1" type="Button" parent="Empty_Section"]
+visible = false
 margin_left = 32.0
 margin_top = -128.0
 margin_right = 96.0
@@ -33,7 +37,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_2" type="Button" parent="."]
+[node name="Option_2" type="Button" parent="Empty_Section"]
+visible = false
 margin_left = 160.0
 margin_top = -128.0
 margin_right = 224.0
@@ -42,7 +47,7 @@ text = "Balloon"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="." to="." method="_on_Section_pressed"]
-[connection signal="pressed" from="Option_Balloon" to="." method="_on_Option_Balloon_pressed"]
-[connection signal="pressed" from="Option_1" to="." method="_on_Option_pressed"]
-[connection signal="pressed" from="Option_2" to="." method="_on_Option_pressed"]
+[connection signal="pressed" from="Empty_Section" to="Empty_Section" method="_on_Section_pressed"]
+[connection signal="pressed" from="Empty_Section/Option_Balloon" to="Empty_Section" method="_on_Option_Balloon_pressed"]
+[connection signal="pressed" from="Empty_Section/Option_1" to="Empty_Section" method="_on_Option_pressed"]
+[connection signal="pressed" from="Empty_Section/Option_2" to="Empty_Section" method="_on_Option_pressed"]

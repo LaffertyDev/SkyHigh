@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://units/platform/platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://units/platform/Plank_03.png" type="Texture" id=2]
 [ext_resource path="res://city.gd" type="Script" id=3]
-[ext_resource path="res://units/balloon/balloon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://skyhigh.gd" type="Script" id=5]
 [ext_resource path="res://units/build_platform/build_platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game_gui/gui.tscn" type="PackedScene" id=7]
@@ -22,11 +21,14 @@ position = Vector2( 0, 1 )
 current = true
 zoom = Vector2( 2, 2 )
 
-[node name="Balloon" parent="City" instance=ExtResource( 4 )]
-position = Vector2( -59.4594, -213.395 )
-
 [node name="Platform" parent="City" instance=ExtResource( 1 )]
 position = Vector2( 0.568817, -0.568787 )
+
+[node name="Section1" parent="City/Platform" instance=ExtResource( 8 )]
+position = Vector2( -54, -32 )
+
+[node name="Section2" parent="City/Platform" instance=ExtResource( 8 )]
+position = Vector2( 54, -32 )
 
 [node name="build_platform" parent="City" instance=ExtResource( 6 )]
 show_behind_parent = true
@@ -37,12 +39,6 @@ offset_x = 1
 show_behind_parent = true
 position = Vector2( -286, 0 )
 offset_x = -1
-
-[node name="Section" parent="City" instance=ExtResource( 8 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 128.0
-margin_bottom = 128.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

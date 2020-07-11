@@ -8,7 +8,7 @@ export(Vector2) var velocity = Vector2(0, 0)
 
 var gravity_magnitude : int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-export(int) var balloon_lift_newtons : int = 10 # divide by 10
+export(int) var balloon_lift_newtons : int = 100 # divide by 10
 
 func _ready():
 	pass # Replace with function body.
@@ -50,13 +50,24 @@ func _on_build_platform_built_platform(offset_x, offset_y):
 			
 func _handle_build_platform(build_platform):
 	var platform_scene = load("res://units/platform/platform.tscn")
-	var instance = platform_scene.instance()
-	instance.set_name("platform" + str(build_platform.offset_x) + "_" + str(build_platform.offset_y))
-	instance.position.x = build_platform.offset_x * (256 + 30)
-	instance.position.y = build_platform.offset_y * (64 + 30)
-	instance.offset_x = build_platform.offset_x
-	instance.offset_y = build_platform.offset_y
-	add_child(instance)
+	var platform_instance = platform_scene.instance()
+	platform_instance.set_name("platform" + str(build_platform.offset_x) + "_" + str(build_platform.offset_y))
+	platform_instance.position.x = build_platform.offset_x * (256 + 30)
+	platform_instance.position.y = build_platform.offset_y * (64 + 30)
+	platform_instance.offset_x = build_platform.offset_x
+	platform_instance.offset_y = build_platform.offset_y
+	
+	var section_scene = load("res://units/section/section.tscn")
+	var section_instance1 = section_scene.instance()
+	section_instance1.position.x = -54
+	section_instance1.position.y = -32
+	platform_instance.add_child(section_instance1)
+	var section_instance2 = section_scene.instance()
+	section_instance2.position.x = 54
+	section_instance2.position.y = -32
+	platform_instance.add_child(section_instance2)
+	
+	add_child(platform_instance)
 	remove_child(build_platform)
 	
 	var should_build_left = build_platform.offset_x > -3 # cannot build more to the left

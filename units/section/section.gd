@@ -20,10 +20,11 @@ func _unhandled_input(event):
 func _on_Option_Balloon_pressed():
 	var balloon_scene = load("res://units/balloon/balloon.tscn")
 	var instance = balloon_scene.instance()
-	instance.position.x = self.rect_position.x
-	instance.position.y = self.rect_position.y
-	add_child(instance)
+	instance.position.x = 32 + 10
+	instance.position.y = 0
+	get_parent().add_child(instance)
 	_set_menu(false)
+	self.visible = false
 	
 func _set_menu(is_open):
 	$Option_1.visible = is_open
