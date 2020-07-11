@@ -13,7 +13,7 @@ export(int) var balloon_lift_newtons : int = 10 # divide by 10
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_bdelta):
 	var position = self.global_position.y
 	if (position > 0):
 		emit_signal("hit_ground")
@@ -23,7 +23,7 @@ func _process(delta):
 	
 func _physics_process(delta):
 	velocity.y += _get_accel() * delta;
-	move_and_slide(velocity)
+	var _result = move_and_slide(velocity)
 	
 func _get_platforms():
 	return get_tree().get_nodes_in_group("platforms")
