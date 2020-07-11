@@ -31,7 +31,24 @@ func _get_platforms():
 func _get_balloons():
 	return get_tree().get_nodes_in_group("balloons")
 
+func _get_build_platforms():
+	return get_tree().get_nodes_in_group("build_platforms")
+
 func _get_accel():
 	var balloon_total_lift = (_get_balloons().size() * balloon_lift_newtons) / _get_platforms().size()
 	var acceleration_delta = float((gravity_magnitude - balloon_total_lift)) / 10.0 
 	return acceleration_delta
+
+func _on_build_platform_built_platform(offset_x, offset_y):
+	var build_platforms = _get_build_platforms()
+	print("signal intercept")
+	for b_plat in build_platforms:
+		if (b_plat.offset_x == offset_x && b_plat.offset_y == offset_y):
+			var platform_scene = load("res://units/platform/platform.tscn")
+			var instance = platform_scene.instance()
+			instance.set_name("platform" + str(offset_x) + "_" + str(offset_y))
+			instance.position.x = b_plat.position.x
+			instance.position.y = b_plat.position.y
+			add_child(instance)
+			remove_child(b_plat)
+			break
