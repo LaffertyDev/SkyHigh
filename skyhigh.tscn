@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://units/platform/platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://units/platform/Plank_03.png" type="Texture" id=2]
+[ext_resource path="res://city.gd" type="Script" id=3]
+[ext_resource path="res://units/balloon/balloon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://skyhigh.gd" type="Script" id=5]
+[ext_resource path="res://units/build_platform/build_platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game_gui/gui.tscn" type="PackedScene" id=7]
+
+[node name="SkyHigh" type="Node"]
+script = ExtResource( 5 )
+starting_height = 1000
+
+[node name="City" type="KinematicBody2D" parent="."]
+position = Vector2( 473.015, -395.516 )
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="City"]
+current = true
+
+[node name="Balloon" parent="City" instance=ExtResource( 4 )]
+position = Vector2( 0, -36 )
+
+[node name="Platform" parent="City" instance=ExtResource( 1 )]
+
+[node name="build_platform" parent="City" instance=ExtResource( 6 )]
+show_behind_parent = true
+position = Vector2( 62, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 581.214, -304.351 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+[connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
+[connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
+[connection signal="built_platform" from="City/build_platform" to="City" method="_on_build_platform_built_platform"]

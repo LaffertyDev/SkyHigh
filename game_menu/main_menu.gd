@@ -3,7 +3,7 @@ extends Node
 
 
 func _on_Game_Start():
-	var res = get_tree().change_scene("res://SkyHigh.tscn")
+	var res = get_tree().change_scene("res://skyhigh.tscn")
 	if res != OK:
 		print("There was a massive failure")
 

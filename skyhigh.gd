@@ -9,6 +9,6 @@ func _ready():
 func _on_City_hit_ground():
 	# hit the ground
 	print("Game Over")
-	var res = get_tree().change_scene("res://game_menu/MainMenu.tscn")
+	var res = get_tree().change_scene("res://game_menu/mainmenu.tscn")
 	if res != OK:
 		print("There was a massive failure")

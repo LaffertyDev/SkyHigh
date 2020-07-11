@@ -44,6 +44,7 @@ func _on_build_platform_built_platform(offset_x, offset_y):
 	print("signal intercept")
 	for b_plat in build_platforms:
 		if (b_plat.offset_x == offset_x && b_plat.offset_y == offset_y):
+			# replace build platform with a legit platform
 			var platform_scene = load("res://units/platform/platform.tscn")
 			var instance = platform_scene.instance()
 			instance.set_name("platform" + str(offset_x) + "_" + str(offset_y))
