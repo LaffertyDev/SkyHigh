@@ -7,7 +7,6 @@ signal balloon_pop
 func _ready():
 	add_to_group("balloons")
 
-
 # core is 0 - 8/14.5 km
 # stratosphere is up to 50 km
 # mesophere is up to 85 km

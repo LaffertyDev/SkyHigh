@@ -94,7 +94,11 @@ position = Vector2( 98.6064, -411.282 )
 
 [node name="Whale3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 98.6064, -411.282 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 [connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
 [connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
 [connection signal="built_platform" from="City/build_platform" to="City" method="_on_build_platform_built_platform"]
 [connection signal="built_platform" from="City/build_platform2" to="City" method="_on_build_platform_built_platform"]
+[connection signal="timeout" from="Timer" to="." method="_on_Whale_Spawn"]
