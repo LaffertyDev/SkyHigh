@@ -27,10 +27,10 @@ zoom = Vector2( 2, 2 )
 position = Vector2( 0.568817, -0.568787 )
 
 [node name="Section1" parent="City/Platform" instance=ExtResource( 8 )]
-position = Vector2( -54, -32 )
+position = Vector2( -70, -32 )
 
 [node name="Section2" parent="City/Platform" instance=ExtResource( 8 )]
-position = Vector2( 54, -32 )
+position = Vector2( 70, -32 )
 
 [node name="build_platform" parent="City" instance=ExtResource( 6 )]
 show_behind_parent = true

@@ -59,11 +59,11 @@ func _handle_build_platform(build_platform):
 	
 	var section_scene = load("res://units/section/section.tscn")
 	var section_instance1 = section_scene.instance()
-	section_instance1.position.x = -54
+	section_instance1.position.x = -70
 	section_instance1.position.y = -32
 	platform_instance.add_child(section_instance1)
 	var section_instance2 = section_scene.instance()
-	section_instance2.position.x = 54
+	section_instance2.position.x = 70
 	section_instance2.position.y = -32
 	platform_instance.add_child(section_instance2)
 	

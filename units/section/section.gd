@@ -20,8 +20,8 @@ func _unhandled_input(event):
 func _on_Option_Balloon_pressed():
 	var balloon_scene = load("res://units/balloon/balloon.tscn")
 	var instance = balloon_scene.instance()
-	instance.position.x = 32 + 10
-	instance.position.y = 0
+	instance.position.x = 0
+	instance.position.y = -100
 	get_parent().add_child(instance)
 	_set_menu(false)
 	self.visible = false
