@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://units/section/section.gd" type="Script" id=1]
 [ext_resource path="res://units/section/ResourcesFlatIcon_57.png" type="Texture" id=2]
+[ext_resource path="res://units/section/frame.png" type="Texture" id=3]
+[ext_resource path="res://units/balloon/balloon.tres" type="SpriteFrames" id=4]
 
 [node name="Node" type="Node2D"]
 
@@ -17,36 +19,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_Balloon" type="Button" parent="Empty_Section"]
-margin_left = -32.0
-margin_top = -128.0
-margin_right = 32.0
-margin_bottom = -64.0
-text = "Balloon"
+[node name="Option_Balloon" type="TextureButton" parent="Empty_Section"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.103
+margin_top = -418.804
+margin_right = 217.897
+margin_bottom = -72.8037
+rect_scale = Vector2( 0.75, 0.75 )
+texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_1" type="Button" parent="Empty_Section"]
-margin_left = 97.07
-margin_top = -128.0
-margin_right = 161.07
-margin_bottom = -64.0
-text = "Balloon"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Option_2" type="Button" parent="Empty_Section"]
-margin_left = 228.0
-margin_top = -128.0
-margin_right = 292.0
-margin_bottom = -64.0
-text = "Balloon"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="AnimatedSprite" parent="Empty_Section/Option_Balloon"]
+position = Vector2( 171.89, 173.296 )
+scale = Vector2( 9, 9 )
+frames = ExtResource( 4 )
+playing = true
 [connection signal="pressed" from="Empty_Section" to="Empty_Section" method="_on_Section_pressed"]
 [connection signal="pressed" from="Empty_Section/Option_Balloon" to="Empty_Section" method="_on_Option_Balloon_pressed"]
-[connection signal="pressed" from="Empty_Section/Option_1" to="Empty_Section" method="_on_Option_pressed"]
-[connection signal="pressed" from="Empty_Section/Option_2" to="Empty_Section" method="_on_Option_pressed"]

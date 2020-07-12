@@ -1,50 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://units/balloon/balloon_blue.png" type="Texture" id=1]
+[ext_resource path="res://units/balloon/balloon.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://units/balloon/balloon.gd" type="Script" id=2]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 16, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 16, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 16, 32 )
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": false,
-"name": "death",
-"speed": 5.0
-} ]
 
 [node name="Balloon" type="Node2D"]
 script = ExtResource( 2 )
@@ -52,7 +9,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -31 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
+frames = ExtResource( 1 )
 frame = 1
 playing = true
 

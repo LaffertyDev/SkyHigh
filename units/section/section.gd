@@ -1,7 +1,7 @@
 extends TextureButton
 
 func _on_Section_pressed():
-	_set_menu(!$Option_1.visible)
+	_set_menu(!$Option_Balloon.visible)
 
 func _on_Option_pressed():
 	print("option was pressed")
@@ -36,6 +36,4 @@ func _on_Balloon_Pop():
 	self.visible = true
 
 func _set_menu(is_open):
-	$Option_1.visible = is_open
-	$Option_2.visible = is_open
 	$Option_Balloon.visible = is_open
