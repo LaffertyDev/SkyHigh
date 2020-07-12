@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 func _on_Section_pressed():
 	_set_menu(!$Option_1.visible)

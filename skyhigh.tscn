@@ -20,25 +20,24 @@ script = ExtResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="City"]
 position = Vector2( 0, 1 )
 current = true
-zoom = Vector2( 2, 2 )
 
 [node name="Platform" parent="City" instance=ExtResource( 1 )]
 position = Vector2( 0.568817, -0.568787 )
 
 [node name="Section1" parent="City/Platform" instance=ExtResource( 8 )]
-position = Vector2( -70, -32 )
+position = Vector2( -24, -32 )
 
 [node name="Section2" parent="City/Platform" instance=ExtResource( 8 )]
-position = Vector2( 70, -32 )
+position = Vector2( 24, -32 )
 
 [node name="build_platform" parent="City" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( 150, 0 )
+position = Vector2( 94, 0 )
 offset_x = 1
 
 [node name="build_platform2" parent="City" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( -150, 0 )
+position = Vector2( -94, 0 )
 offset_x = -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -4,6 +4,8 @@ export(int) var health = 100
 
 signal balloon_pop
 
+signal on_death_anim_finished
+
 func _ready():
 	add_to_group("balloons")
 
@@ -24,11 +26,16 @@ func _process(delta):
 	health = health - health_lost
 	$HealthBar.value = health
 	if health < 0:
-		get_parent().remove_child(self)
-		emit_signal("balloon_pop")
+		$Sprite.play("death")
 		
 	if health < 100:
 		$HealthBar.visible = true
 		
 # get city height
 # write exponential decay for health lost per tick
+
+
+func _on_Sprite_animation_finished():
+	if $Sprite.animation == "death":
+		queue_free()
+		emit_signal("balloon_pop")
