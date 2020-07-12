@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 export(int) var health = 1
-export(int) var min_speed = 10
-export(int) var max_speed = 100
+export(int) var min_speed = 0
+export(int) var max_speed = 30
 
 signal whale_died
 

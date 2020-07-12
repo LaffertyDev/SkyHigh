@@ -8,8 +8,6 @@ export(Vector2) var velocity = Vector2(0, 0)
 
 var gravity_magnitude : int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-export (float) var platform_mass_kg = 7.5
-
 func _ready():
 	pass # Replace with function body.
 
@@ -26,7 +24,11 @@ func _physics_process(delta):
 	var _result = move_and_slide(velocity)
 
 func _get_mass():
-	return _get_platforms().size() * platform_mass_kg
+	var total_platform_mass = 0
+	for plat in _get_platforms():
+		total_platform_mass += plat.get_mass()
+	
+	return total_platform_mass
 	
 func _get_platforms():
 	return get_tree().get_nodes_in_group("platforms")
