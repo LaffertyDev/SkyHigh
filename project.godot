@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="SkyHigh_GMTK_2020_GameJam"
 run/main_scene="res://game_menu/main_menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://skull.png"
 
 [display]
 
