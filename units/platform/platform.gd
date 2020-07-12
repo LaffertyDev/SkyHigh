@@ -4,7 +4,7 @@ export(int) var offset_x
 export(int) var offset_y
 
 export(float) var whale_default_mass = 5
-export(float) var platform_default_mass = 7
+export(float) var platform_default_mass = 5
 
 var whales = 0
 
