@@ -11,6 +11,7 @@
 [node name="SkyHigh" type="Node"]
 script = ExtResource( 5 )
 starting_height = 1000
+whale_gas = 200
 
 [node name="City" type="KinematicBody2D" parent="."]
 position = Vector2( 0, -600 )

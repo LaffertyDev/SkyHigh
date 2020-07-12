@@ -19,15 +19,22 @@ extents = Vector2( 64.0264, 43.1845 )
 
 [node name="Whale" type="RigidBody2D"]
 input_pickable = true
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
+
+[node name="Click_Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Click_Detector"]
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
-[connection signal="input_event" from="." to="." method="_on_Whale_input_event"]
-[connection signal="mouse_entered" from="." to="." method="_on_Whale_mouse_entered"]
+[connection signal="input_event" from="Click_Detector" to="." method="_on_Whale_input_event"]
