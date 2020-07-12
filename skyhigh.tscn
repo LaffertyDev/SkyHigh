@@ -22,7 +22,6 @@ position = Vector2( 0, 1 )
 current = true
 
 [node name="Platform" parent="City" instance=ExtResource( 1 )]
-position = Vector2( 0.568817, -0.568787 )
 
 [node name="Section1" parent="City/Platform" instance=ExtResource( 8 )]
 position = Vector2( -24, -32 )
