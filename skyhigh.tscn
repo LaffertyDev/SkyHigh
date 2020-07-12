@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://units/platform/platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://background/background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://city.gd" type="Script" id=3]
+[ext_resource path="res://units/whale/whale.tscn" type="PackedScene" id=4]
 [ext_resource path="res://skyhigh.gd" type="Script" id=5]
 [ext_resource path="res://units/build_platform/build_platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game_gui/gui.tscn" type="PackedScene" id=7]
@@ -47,6 +48,9 @@ offset_x = -1
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Whale" parent="." instance=ExtResource( 4 )]
+position = Vector2( -372.316, -1000 )
 [connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
 [connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
 [connection signal="built_platform" from="City/build_platform" to="City" method="_on_build_platform_built_platform"]

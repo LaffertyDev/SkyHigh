@@ -8,7 +8,7 @@ func _on_Option_pressed():
 	_set_menu(false)
 
 func _process(delta):
-	$Option_Balloon/NotAllowed.visible = get_tree().get_current_scene().whale_gas < 100
+	$Option_Balloon/NotAllowed.visible = !_has_enough_gas_to_build()
 	
 # check for outside click events
 # and close the options
@@ -20,9 +20,8 @@ func _unhandled_input(event):
 			_set_menu(false)
 
 func _on_Option_Balloon_pressed():
-	var avail_gas = get_tree().get_current_scene().whale_gas
-	if avail_gas < 100:
-		print("Not enough gas")
+	if !_has_enough_gas_to_build():
+		return
 
 	get_tree().get_current_scene().whale_gas -= 100
 	var balloon_scene = load("res://units/balloon/balloon.tscn")
@@ -39,3 +38,6 @@ func _on_Balloon_Pop():
 
 func _set_menu(is_open):
 	$Option_Balloon.visible = is_open
+
+func _has_enough_gas_to_build():
+	return get_tree().get_current_scene().whale_gas >= 100
