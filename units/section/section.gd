@@ -6,6 +6,9 @@ func _on_Section_pressed():
 func _on_Option_pressed():
 	print("option was pressed")
 	_set_menu(false)
+
+func _process(delta):
+	$Option_Balloon/NotAllowed.visible = get_tree().get_current_scene().whale_gas < 100
 	
 # check for outside click events
 # and close the options
@@ -20,7 +23,6 @@ func _on_Option_Balloon_pressed():
 	var avail_gas = get_tree().get_current_scene().whale_gas
 	if avail_gas < 100:
 		print("Not enough gas")
-		return
 
 	get_tree().get_current_scene().whale_gas -= 100
 	var balloon_scene = load("res://units/balloon/balloon.tscn")
