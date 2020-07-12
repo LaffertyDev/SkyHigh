@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://units/platform/platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://background/background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://city.gd" type="Script" id=3]
-[ext_resource path="res://units/whale/whale.tscn" type="PackedScene" id=4]
 [ext_resource path="res://skyhigh.gd" type="Script" id=5]
 [ext_resource path="res://units/build_platform/build_platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game_gui/gui.tscn" type="PackedScene" id=7]
@@ -12,7 +11,6 @@
 [node name="SkyHigh" type="Node"]
 script = ExtResource( 5 )
 starting_height = 1000
-whale_gas = 200
 
 [node name="City" type="KinematicBody2D" parent="."]
 position = Vector2( 0, -600 )
@@ -46,13 +44,11 @@ offset_x = -1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Whale_Timer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
-
-[node name="Whale" parent="." instance=ExtResource( 4 )]
-position = Vector2( -372.316, -1000 )
 [connection signal="city_move" from="City" to="CanvasLayer/GUI" method="_on_City_city_move"]
 [connection signal="hit_ground" from="City" to="." method="_on_City_hit_ground"]
 [connection signal="built_platform" from="City/build_platform" to="City" method="_on_build_platform_built_platform"]
 [connection signal="built_platform" from="City/build_platform2" to="City" method="_on_build_platform_built_platform"]
-[connection signal="timeout" from="Timer" to="." method="_on_Whale_Spawn"]
+[connection signal="timeout" from="Whale_Timer" to="." method="_on_Whale_Spawn"]

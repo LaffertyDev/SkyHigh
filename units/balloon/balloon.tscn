@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://units/balloon/balloon.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://units/balloon/balloon.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.137255, 0.152941, 0.733333, 1 )
 
 [node name="Balloon" type="Node2D"]
 script = ExtResource( 2 )
@@ -10,7 +13,6 @@ script = ExtResource( 2 )
 position = Vector2( 0, -31 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
-frame = 1
 playing = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
@@ -18,6 +20,7 @@ margin_left = -17.248
 margin_top = -81.0506
 margin_right = 18.752
 margin_bottom = -68.0506
+custom_styles/fg = SubResource( 1 )
 value = 100.0
 rounded = true
 percent_visible = false
