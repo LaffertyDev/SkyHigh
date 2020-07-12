@@ -10,15 +10,16 @@ script = ExtResource( 2 )
 position = Vector2( 0, -31 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-margin_left = -62.0
-margin_top = -150.0
-margin_right = 63.0
-margin_bottom = -100.0
+margin_left = -17.248
+margin_top = -81.0506
+margin_right = 18.752
+margin_bottom = -68.0506
 value = 100.0
+rounded = true
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false

@@ -20,6 +20,7 @@ __meta__ = {
 }
 
 [node name="Option_Balloon" type="TextureButton" parent="Empty_Section"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
