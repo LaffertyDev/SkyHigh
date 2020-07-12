@@ -17,8 +17,7 @@ func _process(_bdelta):
 		emit_signal("hit_ground")
 
 	emit_signal("city_move", position, velocity.y, _get_accel(), _get_mass())
-	
-	
+
 func _physics_process(delta):
 	velocity.y += _get_accel() * delta;
 	var _result = move_and_slide(velocity)

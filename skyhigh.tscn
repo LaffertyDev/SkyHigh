@@ -20,6 +20,7 @@ script = ExtResource( 3 )
 position = Vector2( 0, 1 )
 offset = Vector2( 0, -150 )
 current = true
+drag_margin_v_enabled = true
 offset_v = -1.0
 
 [node name="Platform" parent="City" instance=ExtResource( 1 )]

@@ -126,3 +126,13 @@ text = "Whale Gas"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Max_Height" type="Label" parent="."]
+margin_left = 168.73
+margin_top = 9.59469
+margin_right = 240.73
+margin_bottom = 23.5947
+text = "Max Height"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,10 +1,16 @@
 extends Node2D
 
+var max_height = 0
+
 func set_gas_text(gas):
 	$WhaleGas.text = "Whale Gas: " + str(gas)
 
 func _on_City_city_move(height, velocity, acceleration, mass_kg):
 	var normalized_height = int(floor(height * -1))
+	if (normalized_height > max_height):
+		max_height = normalized_height
+		$Max_Height.text = "Max Height: " + str(max_height) + " meters"
+
 	normalized_height = (normalized_height - (normalized_height % 100))
 	if (normalized_height < 2000):
 		$Height.text = "Height: " + str(normalized_height) + " meters"
