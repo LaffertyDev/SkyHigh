@@ -11,7 +11,7 @@ func _on_City_city_move(height, velocity, acceleration, mass_kg):
 	else:
 		$Height.text = "Height: " + str(normalized_height / 1000) + " km"
 	var normalized_velocity = floor(velocity * -1)
-	var normalized_acceleration = acceleration * -1
+	var normalized_acceleration = stepify(acceleration * -1, 0.01)
 	
 	$Acceleration/Up.visible = normalized_acceleration > 0
 	$Acceleration/Down.visible = normalized_acceleration < 0

@@ -8,7 +8,7 @@ export(Vector2) var velocity = Vector2(0, 0)
 
 var gravity_magnitude : int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-export(int) var balloon_lift_newtons : int = 100 # divide by 10
+export (float) var platform_mass_kg = 7.5
 
 func _ready():
 	pass # Replace with function body.
@@ -18,12 +18,15 @@ func _process(_bdelta):
 	if (position > 0):
 		emit_signal("hit_ground")
 
-	emit_signal("city_move", position, velocity.y, _get_accel(), _get_platforms().size())
+	emit_signal("city_move", position, velocity.y, _get_accel(), _get_mass())
 	
 	
 func _physics_process(delta):
 	velocity.y += _get_accel() * delta;
 	var _result = move_and_slide(velocity)
+
+func _get_mass():
+	return _get_platforms().size() * platform_mass_kg
 	
 func _get_platforms():
 	return get_tree().get_nodes_in_group("platforms")
@@ -35,8 +38,12 @@ func _get_build_platforms():
 	return get_tree().get_nodes_in_group("build_platforms")
 
 func _get_accel():
-	var balloon_total_lift = (_get_balloons().size() * balloon_lift_newtons) / _get_platforms().size()
-	var acceleration_delta = float((gravity_magnitude - balloon_total_lift)) / 10.0 
+	var balloon_total_lift = 0
+	for balloon in _get_balloons():
+		balloon_total_lift += balloon.get_lift_newtons()
+
+	var acceleration_from_lift = balloon_total_lift / _get_mass()
+	var acceleration_delta = float((gravity_magnitude - acceleration_from_lift)) / 10.0 
 	return acceleration_delta
 
 func _on_build_platform_built_platform(offset_x, offset_y):

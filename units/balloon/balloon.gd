@@ -2,6 +2,8 @@ extends Node2D
 
 export(int) var health = 100
 
+export(int) var initial_lift_newtons = 750
+
 signal balloon_pop
 
 signal on_death_anim_finished
@@ -34,6 +36,8 @@ func _process(delta):
 # get city height
 # write exponential decay for health lost per tick
 
+func get_lift_newtons():
+	return initial_lift_newtons * (float(health) / 100)
 
 func _on_Sprite_animation_finished():
 	if $Sprite.animation == "death":
