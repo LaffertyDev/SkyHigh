@@ -26,7 +26,7 @@ func _on_Option_Balloon_pressed():
 	var balloon_scene = load("res://units/balloon/balloon.tscn")
 	var instance = balloon_scene.instance()
 	instance.position.x = 0
-	instance.position.y = -100
+	instance.position.y = 25
 	get_parent().add_child(instance)
 	instance.connect("balloon_pop", self, "_on_Balloon_Pop")
 	_set_menu(false)
