@@ -1,5 +1,7 @@
 extends MarginContainer
 
+func set_gas_text(gas):
+	$HBoxContainer/Info/WhaleGas.text = "Whale Gas: " + str(gas)
 
 func _on_City_city_move(height, velocity, acceleration, mass_kg):
 	var normalized_height = int(floor(height * -1))

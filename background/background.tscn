@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://background/sky.png" type="Texture" id=1]
+[ext_resource path="res://background/Clouds_01_192x128_Set_02_06.png" type="Texture" id=2]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+
+[node name="Background" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 0, 1224 )
+
+[node name="Sprite" type="Sprite" parent="Background"]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Clouds1" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 0, 600 )
+
+[node name="Sprite" type="Sprite" parent="Clouds1"]
+position = Vector2( -908.226, 168.762 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Clouds1"]
+position = Vector2( 297.967, 106.785 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Clouds1"]
+position = Vector2( 666.196, 271.859 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Clouds1"]
+position = Vector2( -405.575, 314.294 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="Clouds1"]
+position = Vector2( 329.068, 451.203 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )

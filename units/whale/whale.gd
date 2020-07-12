@@ -9,11 +9,9 @@ signal whale_died
 func _ready():
 	add_to_group("whales")
 	if randi() % 2 == 0:
-		print("go left")
 		$AnimatedSprite.flip_h = true
 		self.linear_velocity = Vector2(-rand_range(min_speed, max_speed), 0)
 	else:
-		print("go right")
 		self.linear_velocity = Vector2(rand_range(min_speed, max_speed), 0)
 
 

@@ -18,13 +18,13 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1004.0
-margin_bottom = 88.0
+margin_bottom = 106.0
 alignment = 2
 
 [node name="Info" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 904.0
 margin_right = 984.0
-margin_bottom = 68.0
+margin_bottom = 86.0
 
 [node name="Height" type="Label" parent="HBoxContainer/Info"]
 margin_right = 80.0
@@ -48,3 +48,9 @@ margin_top = 54.0
 margin_right = 80.0
 margin_bottom = 68.0
 text = "Mass"
+
+[node name="WhaleGas" type="Label" parent="HBoxContainer/Info"]
+margin_top = 72.0
+margin_right = 80.0
+margin_bottom = 86.0
+text = "Whale Gas"
