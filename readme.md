@@ -35,3 +35,10 @@ You may get security warnings on Windows. Ignore and run at your own risk.
 ## License
 
 All rights are reserved.
+
+## Assets
+
+[Mountain Background](https://opengameart.org/content/bevouliin-free-mountain-game-background)
+[Balloons](https://opengameart.org/content/balloon-pop-sprite)
+[Whales](https://opengameart.org/content/basic-whales)
+[Sky background](https://opengameart.org/content/sky-clouds)
