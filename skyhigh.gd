@@ -4,7 +4,7 @@ export(int) var starting_height
 
 export(int) var whale_gas = 200
 
-export(int) var whale_worth = 25
+export(int) var whale_worth = 50
 
 func _ready():
 	print("Game script ready")

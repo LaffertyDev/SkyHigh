@@ -24,7 +24,7 @@ gravity_scale = 0.0
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
-frame = 2
+frame = 1
 
 [node name="Click_Detector" type="Area2D" parent="."]
 

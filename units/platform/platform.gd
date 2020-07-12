@@ -3,7 +3,8 @@ extends Node2D
 export(int) var offset_x
 export(int) var offset_y
 
-export(float) var platform_default_mass = 7.5
+export(float) var whale_default_mass = 5
+export(float) var platform_default_mass = 7
 
 var whales = 0
 
@@ -23,4 +24,4 @@ func _on_Platform_body_entered(body):
 		add_child(instance)
 
 func get_mass():
-	return platform_default_mass + (whales * 10)
+	return platform_default_mass + (whales * whale_default_mass)
